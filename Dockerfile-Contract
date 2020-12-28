@@ -1,0 +1,4 @@
+FROM openjdk:8
+ADD . /src
+WORKDIR /src
+CMD ["./gradlew", "clean", "service-contract-test-consumer:test", "service-contract-test-consumer:pactPublish", "service-contract-test-producer:test", "service-contract-test-producer:pactVerify", "--info"]

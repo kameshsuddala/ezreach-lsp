@@ -1,0 +1,16 @@
+plugins {
+	id 'java'
+}
+subprojects {
+	apply plugin: "java"
+	group = 'com.ezyreach.lsp'
+	version = '1.0'
+
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	repositories {
+		mavenLocal()
+		jcenter()
+	}
+
+}

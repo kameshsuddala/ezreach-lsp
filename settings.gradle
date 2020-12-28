@@ -1,0 +1,6 @@
+rootProject.name = 'ms-bootstrap'
+include 'service'
+include 'service-component-test'
+include 'service-contract-test-consumer'
+include 'service-contract-test-producer'
+

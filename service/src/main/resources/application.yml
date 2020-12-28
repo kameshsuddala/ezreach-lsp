@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ms-bootstrap
+
+server:
+  port: 9288
+
+logging:
+  level:
+    root: INFO
+    com.ezyreach: INFO
+
+management:
+  endpoints:
+    web:
+      base-path: "/"
+      path-mapping:
+        prometheus: "metrics"
+      exposure:
+        include: ["health", "info", "prometheus", "loggers", "flyway", "conditions", "configprops"]
+  info:
+    git:
+      mode: full
