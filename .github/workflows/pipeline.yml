@@ -1,7 +1,8 @@
 name: build-master
 on: [push]
 jobs:
-  check-bats-version:
+  test:
+    name: Test - Units & Integrations
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -9,10 +10,18 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Gradle Package
+      - name: Gradle test
+        run: gradle clean test
+  
+  build: 
+    name: build package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: gradle build
         run: gradle clean build
-      - name: Publish to GitHub Packages
-        run: gradle publish --stacktrace
-        env:
-           USERNAME: ${{ github.actor }}
-           PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+   
