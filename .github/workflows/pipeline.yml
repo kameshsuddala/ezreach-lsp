@@ -24,6 +24,8 @@ jobs:
           java-version: 1.8
       - name: gradle build
         run: gradle clean build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
   artifact:
     name: publish - GitHub Packages
