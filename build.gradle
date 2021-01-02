@@ -1,6 +1,34 @@
 plugins {
 	id 'java'
 }
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+
+docker {
+    registryCredentials {
+        url = 'https://hub.docker.com/repository/docker'
+        username = "kameshsuddala"
+        password = "Mysite@123"
+    }
+}
+
+task buildImage(type: DockerBuildImage) {
+    description "Builds docker image."
+    dependsOn build
+    inputDir = file(".")
+    dockerFile = file('./Dockerfile')
+    tags = ["ezreach:${version}"]
+}
+
+/**
+ * Push the docker image
+ */
+task pushImage(type: DockerPushImage) {
+    dependsOn buildImage
+    description "Pushes docker image."
+    imageName = 'ezreach'
+    tag = "${version}"
+}
 subprojects {
 	apply plugin: "java"
 	group = 'com.ezyreach.lsp'
