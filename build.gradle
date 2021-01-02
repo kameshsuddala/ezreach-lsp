@@ -7,7 +7,6 @@ import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 
 docker {
     registryCredentials {
-        url = 'https://hub.docker.com'
         username = "kameshsuddala"
         password = "Mysite@123"
     }
@@ -18,7 +17,7 @@ task buildImage(type: DockerBuildImage) {
     dependsOn build
     inputDir = file(".")
     dockerFile = file('./Dockerfile')
-    tags = ["hub.docker.com/repository/docker/kameshsuddala/ezreach:1.0"]
+    tags = ["kameshsuddala/ezreach:1.0"]
 }
 
 /**
@@ -27,7 +26,7 @@ task buildImage(type: DockerBuildImage) {
 task pushImage(type: DockerPushImage) {
     dependsOn buildImage
     description "Pushes docker image."
-    imageName = 'hub.docker.com/repository/docker/kameshsuddala/ezreach'
+    imageName = 'kameshsuddala/ezreach'
     tag = "1.0"
 }
 subprojects {
