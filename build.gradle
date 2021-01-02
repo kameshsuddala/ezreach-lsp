@@ -1,5 +1,5 @@
 plugins {
-	id 'java'
+	id "java"
 	id "com.bmuschko.docker-remote-api" version "6.6.1"
 }
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
@@ -16,7 +16,7 @@ task buildImage(type: DockerBuildImage) {
     description "Builds docker image."
     dependsOn build
     inputDir = file(".")
-    dockerFile = file('./Dockerfile')
+    dockerFile = file("./Dockerfile")
     tags = ["kameshsuddala/ezreach:1.0"]
 }
 
@@ -26,13 +26,13 @@ task buildImage(type: DockerBuildImage) {
 task pushImage(type: DockerPushImage) {
     dependsOn buildImage
     description "Pushes docker image."
-    imageName = 'kameshsuddala/ezreach'
+    imageName = "kameshsuddala/ezreach"
     tag = "1.0"
 }
 subprojects {
 	apply plugin: "java"
-	group = 'com.ezyreach.lsp'
-	version = '1.0'
+	group = "com.ezyreach.lsp"
+	version = "1.0"
 
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
