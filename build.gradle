@@ -18,7 +18,7 @@ task buildImage(type: DockerBuildImage) {
     dependsOn build
     inputDir = file(".")
     dockerFile = file('./Dockerfile')
-    tags = ["https://hub.docker.com/repository/docker/kameshsuddala/ezreach:1.0"]
+    tags = ["hub.docker.com/repository/docker/kameshsuddala/ezreach:1.0"]
 }
 
 /**
@@ -27,7 +27,7 @@ task buildImage(type: DockerBuildImage) {
 task pushImage(type: DockerPushImage) {
     dependsOn buildImage
     description "Pushes docker image."
-    imageName = 'https://hub.docker.com/repository/docker/kameshsuddala/ezreach'
+    imageName = 'hub.docker.com/repository/docker/kameshsuddala/ezreach'
     tag = "1.0"
 }
 subprojects {
