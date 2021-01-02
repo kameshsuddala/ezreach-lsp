@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id "com.bmuschko.docker-remote-api" version "5.2.0"
+	id "com.bmuschko.docker-remote-api" version "6.6.1"
 }
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
