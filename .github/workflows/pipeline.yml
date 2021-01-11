@@ -33,7 +33,7 @@ jobs:
       - name: build and push docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
-         image: repo/image
+         image: kameshsuddala/ezreach
          tags: v1, latest
          registry: docker.io
          dockerfile: Dockerfile
