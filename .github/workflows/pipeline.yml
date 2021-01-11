@@ -30,11 +30,15 @@ jobs:
       - name: build with gradle
         run: ./gradlew clean build
       
-      - name: build and push docker image
-        uses: mr-smithers-excellent/docker-build-push@v5
+  publish:
+    needs: build
+    name: build and push docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mr-smithers-excellent/docker-build-push@v5      
         with:
          image: kameshsuddala/ezreach
-         tags: "1.0"
+         tags: v1, latest
          registry: docker.io
          dockerfile: Dockerfile
          username: ${{ secrets.DOCKERHUB_USERNAME }}
