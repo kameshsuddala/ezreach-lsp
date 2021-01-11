@@ -34,7 +34,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
          image: kameshsuddala/ezreach
-         tags: v1, latest
+         tags: 1.0
          registry: docker.io
          dockerfile: Dockerfile
          username: ${{ secrets.DOCKER_USERNAME }}
