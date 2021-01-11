@@ -30,6 +30,9 @@ jobs:
       - name: build with gradle
         run: ./gradlew clean build
       
+      - name: check out
+        uses: actions/checkout@v2.3.2
+      
       - name: build and push docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
