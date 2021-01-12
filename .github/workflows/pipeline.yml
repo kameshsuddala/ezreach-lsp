@@ -35,6 +35,9 @@ jobs:
     name: build and push docker image
     runs-on: ubuntu-latest
     steps:
+      - name: build with gradle
+        run: ./gradlew clean build
+        
       - uses: mr-smithers-excellent/docker-build-push@v5      
         with:
          image: kameshsuddala/ezreach
